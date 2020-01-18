@@ -65,4 +65,4 @@ yarn-debug.log*
 /storage/*
 !/storage/.keep
 .idea
-.DS_Store
+*.DS_Store
