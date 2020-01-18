@@ -1,0 +1,41 @@
+<div class="page-header" style="padding: 6rem 0; background-image: url(https://image.tmdb.org/t/p/original/<% if @film.backdrop_path != nil %><%= @film.backdrop_path %><% else %><%= @film.poster_path %><% end %>)">
+  <div class="container">
+    <div class="grid">
+      <div class="col-xs-12">
+        <div class="main-raised">
+          <div class="grid">
+            <div class="col-xs-12">
+              <h1><%= @film.title %></h1>
+              <p><%= @film.release_date %></p>
+              <% @film.genres.each do |g| %>
+                <span class="badge badge-danger mb-3"><%= g.name %></span>
+              <% end %>
+              <p><%= @film.overview %></p>
+            </div>
+            <div class="col-xs-12">
+              <% if @film.cast.count >= 2 %>
+                <div class="grid">
+                  <% @film.cast.first(6).each do |p, i| %>
+                    <div class="col-xs-12 col-sm-4 col-md-2">
+                      <div class="card-profile">
+                        <% if p.profile_path != nil %>
+                          <div class="card-header card-header-image">
+                            <img src="https://image.tmdb.org/t/p/w500/<%= p.profile_path %>">
+                          </div>
+                        <% end %>
+                        <div class="card-body">
+                          <h5 class='card-title'><%= p.name %></h5>
+                          <h6 class='card-subtitle'><%= p.character %></h6>
+                        </div>
+                      </div>
+                    </div>
+                  <% end %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

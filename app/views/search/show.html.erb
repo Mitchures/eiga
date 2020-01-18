@@ -1,0 +1,48 @@
+<div class="section" style="padding: 5rem 0;">
+  <div class="container">
+    <div class="grid">
+      <div class="col-xs-12">
+        <form id="film-search" action="<%= url_for(:controller => 'search', :action => 'show') %>" class="form-inline ml-auto">
+          <div class="form-group">
+            <input class="form-control mr-sm-2" type="search" name="movie" type="text" placeholder="Search" value="<%= @search.user_input %>">
+          </div>
+          <input name="page" type="hidden" value="1">
+        </form>
+      </div>
+      <% if @search.total_results != 0 %>
+        <% @search.results.each do |m| %>
+          <div class="col-xs-12 col-md-4">
+            <%= link_to movie_details_show_path(:id => m.id), 'data-turbolinks' => false do %>
+              <div id="uid_<%= m.id %>" class="card card-blog card-plain" style="background-image: url('<%= m.backdrop_path %>')">
+                <div class="card-header card-header-image">
+                  <!--                <img src="https://image.tmdb.org/t/p/w500/<%#= m.backdrop_path %>">-->
+                  <div class='card-title'><%= m.title %></div>
+                  <!--                <div class="colored-shadow" style="background-image: url(https://image.tmdb.org/t/p/w500/<%#= m.backdrop_path %>); opacity: 1;"></div>-->
+                </div>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+        <!--          <nav style="background-color: transparent !important; box-shadow: none !important;">-->
+        <!--            <ul class="pagination justify-content-center">-->
+        <%# for i in 1..@search.total_pages do %>
+        <%# if @search.current_page == i %>
+        <!--                  <li class="page-item active">-->
+        <%# else %>
+        <!--                  <li class="page-item">-->
+        <%# end %>
+        <%#= link_to i, search_show_path(:movie => @search.user_input, :page => i), class: "page-link", 'data-turbolinks' => false %>
+        <!--                </li>-->
+        <%# end %>
+        <!--            </ul>-->
+        <!--          </nav>-->
+      <% else %>
+        <div class="row">
+          <div class="col">
+            <h1 style="color: #cccccc;">No Results</h1>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

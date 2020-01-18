@@ -1,0 +1,332 @@
+@import 'partials/variables';
+@import 'partials/mixins';
+@import 'partials/grid';
+@import 'partials/typography';
+
+* {
+  box-sizing: border-box;
+  &::before,
+  &::after {
+    box-sizing: border-box;
+  }
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: $bg;
+  color: $primary-text;
+  > div {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+  }
+}
+
+h1, h2, h3, h4 {
+  color: $primary-text;
+}
+
+em,
+p {
+  color: $secondary-text;
+}
+
+figcaption, figure, footer, header, main, nav, section {
+  display: block;
+}
+
+img {
+  border-style: none;
+  max-width: 100%;
+}
+
+p,
+figure {
+  padding: 0;
+  margin: 1rem 0 1.45rem 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none outside none;
+  li {
+    margin: 0 2rem 0 0;
+  }
+}
+
+a {
+  color: $link-text;
+  text-decoration: none;
+  cursor: pointer;
+  background-color: transparent;
+  -webkit-text-decoration-skip: objects;
+  @include transition();
+  &:hover {
+    color: $primary-text;
+  }
+}
+
+.container {
+  max-width: 76rem;
+  margin: auto;
+  width: 100%;
+  padding: 0 1rem;
+}
+
+.media {
+  display: flex;
+  align-items: center;
+}
+
+.logo-content {
+  position: relative;
+  transform: translateX(1rem);
+}
+
+nav {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  padding: 1.2rem 0;
+  width: 100%;
+  backdrop-filter: saturate(180%) blur(20px);
+  backface-visibility: hidden; // should fix flickering
+  -webkit-backface-visibility: hidden;
+  background: $nav-bg;
+  .media {
+    .logo {
+      a {
+        color: $logo-color;
+      }
+    }
+  }
+  ul {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 100%;
+    li {
+      &:last-child {
+        margin: 0;
+      }
+      a {
+        position: relative;
+        display: inline-block;
+        overflow: hidden;
+        color: $link-text;
+        &.search-link {
+          display: inline-flex;
+          .material-icons {
+            margin-right: 5px;
+          }
+        }
+        &:hover {
+          color: $primary-text;
+        }
+      }
+    }
+  }
+}
+
+.page-header {
+  height: 100vh;
+  background-position: center center;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  display: flex;
+  align-items: center;
+}
+
+.main-raised {
+  backdrop-filter: saturate(180%) blur(20px);
+  background: $details-bg;
+  padding: 20px 40px;
+  //border-radius: 1.5rem;
+  box-shadow: 0 16px 24px 2px rgba(0,0,0,0.14), 0 6px 30px 5px rgba(0,0,0,0.12), 0 8px 10px -5px rgba(0,0,0,0.2);
+}
+
+.badge {
+  border-radius: 12px;
+  padding: 5px 12px;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: #fff;
+  background-color: #f44336;
+  margin-bottom: 1rem;
+  display: inline-block;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+}
+
+
+.card {
+  background-position: center;
+  background-size: cover;
+  height: 350px;
+  width: 100%;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
+  .card-header {
+    &.card-header-image {
+      position: relative;
+      padding: 0;
+      z-index: 1;
+      .card-title {
+        position: absolute;
+        top: 15px;
+        left: 20px;
+        color: #fff;
+        font-size: 1.125rem;
+        opacity: 1;
+        transition: all .3s ease;
+        text-shadow: 0 2px 5px rgba(33,33,33,0.5);
+      }
+    }
+  }
+  &:hover {
+    transform: scale(1.05) translateZ(0px);
+    .card-header {
+      &.card-header-image {
+        .card-title {
+          //opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+.form-control {
+  border-radius: 6px;
+  background-color: #eee;
+  border: 0;
+  height: 36px;
+  transition: background 0s ease-out;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 34px;
+  &:active {
+    outline: none;
+  }
+  &:focus {
+    outline: none;
+  }
+}
+
+.form-inline {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  .form-group {
+    display: flex;
+    flex: 0 0 auto;
+    flex-flow: row wrap;
+    align-items: center;
+    margin-bottom: 0;
+  }
+}
+
+#film-search {
+  .form-group {
+    width: 100% !important;
+    margin-top: 0;
+    padding-top: 0;
+    .form-control {
+      width: 100% !important;
+      font-size: 34px;
+      height: 76px;
+      color: #000;
+      @extend .ytsans;
+      &::-webkit-input-placeholder {
+        font-size: 34px;
+        @extend .ytsans;
+        color: #ccc;
+      }
+    }
+  }
+}
+
+.pagination {
+  margin-top: 70px;
+}
+.justify-content-center {
+  justify-content: center !important;
+}
+.pagination {
+  display: flex;
+  padding-left: 0;
+  list-style: none;
+  border-radius: .25rem;
+}
+
+@media (min-width: $sm) {
+
+  nav .grid > [class*="col-"] {
+    padding: 0.25rem 1rem;
+  }
+
+  nav {
+    .media {
+      .logo {
+        display: block;
+      }
+      .logo-content {
+        transform: translateX(1rem);
+      }
+    }
+    ul {
+      justify-content: flex-end;
+      flex-wrap: nowrap;
+    }
+  }
+
+  ul li {
+    margin: 0 2.5rem 0 0;
+  }
+
+  .logo {
+    vertical-align: middle;
+  }
+
+}
+
+@media (min-width: $md) {
+  body {
+    font-size: 1.2rem;
+  }
+
+  nav {
+    padding: 0;
+  }
+
+  h1 {
+    font-size: 3rem;
+    max-width: 50rem;
+  }
+
+  h2 {
+    margin-top: 0.85rem;
+    font-size: 2.125rem;
+  }
+
+  h3 {
+    font-size: 1.75rem;
+  }
+
+  h4 {
+    font-size: 1.5rem;
+  }
+
+}

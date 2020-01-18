@@ -1,0 +1,36 @@
+// Place all the styles related to the movieDetails controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.movie-jumbotron {
+  background-color: #ffffff;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  height: 500px;
+  .btn-float {
+    position: fixed;
+    top: 18px;
+    left: 18px;
+    background-color: #fff;
+  }
+}
+.jumbotron {
+  box-shadow: none !important;
+}
+.movie-title {
+  font-family: 'YTSans', serif;
+  font-variant-ligatures: none;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin-left: 5px;
+}
+
+.nav-pills {
+  .nav-item {
+    .nav-link.active {
+      color: #fff;
+      background-color: #f44336;
+      box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(156, 39, 176, 0.4);
+    }
+  }
+}
