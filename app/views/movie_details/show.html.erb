@@ -4,33 +4,50 @@
       <div class="col-xs-12">
         <div class="main-raised">
           <div class="grid">
-            <div class="col-xs-12">
+            <div class="col-xs-12 col-md-4">
+              <img src="https://image.tmdb.org/t/p/w1280/<%= @film.poster_path %>" alt="" />
+            </div>
+            <div class="col-xs-12 col-md-8">
               <h1><%= @film.title %></h1>
-              <p><%= @film.release_date %></p>
+              <p><%= @film.release_date %> | <%= @film.runtime %></p>
               <% @film.genres.each do |g| %>
                 <span class="badge badge-danger mb-3"><%= g.name %></span>
               <% end %>
               <p><%= @film.overview %></p>
             </div>
             <div class="col-xs-12">
-              <% if @film.cast.count >= 2 %>
+              <% if @film.cast.count >= 1 %>
                 <div class="grid">
                   <% @film.cast.first(6).each do |p, i| %>
                     <div class="col-xs-12 col-sm-4 col-md-2">
-                      <div class="card-profile">
+                      <div class="cast-member">
                         <% if p.profile_path != nil %>
-                          <div class="card-header card-header-image">
+                          <div class="cast-profile">
                             <img src="https://image.tmdb.org/t/p/w500/<%= p.profile_path %>">
                           </div>
                         <% end %>
-                        <div class="card-body">
-                          <h5 class='card-title'><%= p.name %></h5>
-                          <h6 class='card-subtitle'><%= p.character %></h6>
+                        <div class="cast-body">
+                          <h5 class='cast-name'><%= p.name %></h5>
+                          <p class='cast-character'><%= p.character %></p>
                         </div>
                       </div>
                     </div>
                   <% end %>
                 </div>
+              <% end %>
+            </div>
+            <div class="col-xs-12">
+              <% if @film.reviews.count >= 1 %>
+                <% @film.reviews.first(5).each do |p, i| %>
+                  <div class="review">
+                    <div class="review-body">
+                      <h5 class='review-author'><%= p.author %></h5>
+                      <p class='review-content'><%= p.content %></p>
+                    </div>
+                  </div>
+                <% end %>
+              <% else %>
+                <p class="empty-placeholder-text">No Reviews</p>
               <% end %>
             </div>
           </div>

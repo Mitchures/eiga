@@ -17,7 +17,7 @@
           <% @mnp.first(1).each do |m| %>
             <div class="col-xs-12" style="padding: 0;">
               <%= link_to movie_details_show_path(:id => m.id), 'data-turbolinks' => false do %>
-                <div id="uid_<%= m.id %>" class="card card-blog card-plain" style="background-image: url('https://image.tmdb.org/t/p/w780/<%= m.backdrop_path %>')" data-count="1" data-aos="fade-up">
+                <div id="uid_<%= m.id %>" class="card card-blog card-plain" style="background-image: url('https://image.tmdb.org/t/p/w1280/<%= m.backdrop_path %>')" data-count="1" data-aos="fade-up">
                   <div class="card-header card-header-image">
                     <div class='card-title'><%= m.title %></div>
                   </div>
@@ -28,7 +28,7 @@
           <% @mnp.drop(1).first(2).each_with_index do |m, i| %>
             <div class="col-xs-12 col-md-6" style="padding: 0;">
               <%= link_to movie_details_show_path(:id => m.id), 'data-turbolinks' => false do %>
-                <div id="uid_<%= m.id %>" class="card card-blog card-plain" style="background-image: url('https://image.tmdb.org/t/p/w780/<%= m.backdrop_path %>')" data-count="1" data-aos="fade-up">
+                <div id="uid_<%= m.id %>" class="card card-blog card-plain" style="background-image: url('https://image.tmdb.org/t/p/w1280/<%= m.backdrop_path %>')" data-count="1" data-aos="fade-up">
                   <div class="card-header card-header-image">
                     <div class='card-title'><%= m.title %></div>
                   </div>

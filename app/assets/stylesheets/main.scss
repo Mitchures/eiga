@@ -81,6 +81,10 @@ a {
   padding: 0 1rem;
 }
 
+.empty-placeholder-text {
+  text-align: center;
+}
+
 .media {
   display: flex;
   align-items: center;
@@ -151,8 +155,8 @@ nav {
 .main-raised {
   backdrop-filter: saturate(180%) blur(20px);
   background: $details-bg;
-  padding: 20px 40px;
-  //border-radius: 1.5rem;
+  padding: 40px;
+  border-radius: .5rem;
   box-shadow: 0 16px 24px 2px rgba(0,0,0,0.14), 0 6px 30px 5px rgba(0,0,0,0.12), 0 8px 10px -5px rgba(0,0,0,0.2);
 }
 
@@ -269,6 +273,31 @@ nav {
   padding-left: 0;
   list-style: none;
   border-radius: .25rem;
+}
+
+.cast-member {
+  .cast-profile {
+
+  }
+  .cast-body {
+    .cast-name {
+    }
+    .cast-character {
+      font-size: 14px;
+      margin-top: 0;
+    }
+  }
+}
+
+.review {
+  .review-body {
+    .review-author {
+
+    }
+    .review-content {
+      margin-top: 0;
+    }
+  }
 }
 
 @media (min-width: $sm) {
