@@ -9,7 +9,7 @@
             </div>
             <div class="col-xs-12 col-md-8">
               <h1><%= @film.title %></h1>
-              <p><%= @film.release_date %> | <%= @film.runtime %></p>
+              <p><span><%= @film.release_date %></span><span><%= @film.runtime %></span></p>
               <% @film.genres.each do |g| %>
                 <span class="badge badge-danger mb-3"><%= g.name %></span>
               <% end %>
