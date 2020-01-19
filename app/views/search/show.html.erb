@@ -21,22 +21,22 @@
             <% end %>
           </div>
         <% end %>
-        <div class="col-xs-12">
-          <div class="pagination-wrapper">
-            <ul class="pagination">
-              <% for i in 1..@search.total_pages do %>
-                <li class="page-item <% if @search.current_page == i %>active<% end %>">
-                  <%= link_to i, search_show_path(:query => @search.user_input, :page => i), class: "page-link", 'data-turbolinks' => false %>
-                </li>
-              <% end %>
-            </ul>
+        <% if @search.total_pages > 1 %>
+          <div class="col-xs-12">
+            <div class="pagination-wrapper">
+              <ul class="pagination">
+                <% for i in 1..@search.total_pages do %>
+                  <li class="page-item <% if @search.current_page == i %>active<% end %>">
+                    <%= link_to i, search_show_path(:query => @search.user_input, :page => i), class: "page-link", 'data-turbolinks' => false %>
+                  </li>
+                <% end %>
+              </ul>
+            </div>
           </div>
-        </div>
+        <% end %>
       <% else %>
-        <div class="row">
-          <div class="col">
-            <h1 style="color: #cccccc;">No Results</h1>
-          </div>
+        <div class="col-xs-12">
+          <h4 style="color: #cccccc;">No Results</h4>
         </div>
       <% end %>
     </div>
