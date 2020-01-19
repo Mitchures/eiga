@@ -1,4 +1,11 @@
-<div class="page-header" style="padding: 6rem 0; background-image: url(https://image.tmdb.org/t/p/original/<% if @film.backdrop_path != nil %><%= @film.backdrop_path %><% else %><%= @film.poster_path %><% end %>)">
+<style>
+  body {
+    background-image: url(https://image.tmdb.org/t/p/w500/<% if @film.backdrop_path != nil %><%= @film.backdrops[rand(0..(@film.backdrops.length - 1))].file_path %><% else %><%= @film.poster_path %><% end %>);
+    background-position: center center;
+    background-size: cover;
+  }
+</style>
+<div class="page-header" style="padding: 6rem 0;">
   <div class="container">
     <div class="grid">
       <div class="col-xs-12">

@@ -1,17 +1,20 @@
-class MovieDetailsController < ApplicationController
+class DetailsController < ApplicationController
   require 'date'
 
   def show
     details = Tmdb::Movie.detail(params[:id])
     details.cast = Tmdb::Movie.cast(params[:id])
     details.reviews = Tmdb::Movie.reviews(params[:id]).results
+    details.backdrops = Tmdb::Movie.backdrops(params[:id])
     release = details.release_date
     if release.nil? || release == ''
       details.release_date = 'TBD'
     else
       details.release_date = "#{Date::MONTHNAMES[release.slice(5..6).to_i]} #{release.slice(8..9)}, #{release.slice(0..3)}"
     end
-    details.runtime = time_conversion(details.runtime)
+    unless details.runtime.nil?
+      details.runtime = time_conversion(details.runtime)
+    end
     @film = details
   end
 

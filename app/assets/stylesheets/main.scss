@@ -146,8 +146,10 @@ nav {
 
 .page-header {
   height: 100vh;
-  background-position: center center;
-  background-size: cover;
+  //background-position: center center;
+  //background-size: cover;
+  backdrop-filter: saturate(180%) blur(20px);
+  background: $details-bg;
   margin: 0;
   padding: 0;
   border: 0;
@@ -156,11 +158,11 @@ nav {
 }
 
 .main-raised {
-  backdrop-filter: saturate(180%) blur(20px);
-  background: $details-bg;
-  padding: 40px;
-  border-radius: .5rem;
-  box-shadow: 0 16px 24px 2px rgba(0,0,0,0.14), 0 6px 30px 5px rgba(0,0,0,0.12), 0 8px 10px -5px rgba(0,0,0,0.2);
+  //backdrop-filter: saturate(180%) blur(20px);
+  //background: $details-bg;
+  //padding: 40px;
+  //border-radius: .5rem;
+  //box-shadow: 0 16px 24px 2px rgba(0,0,0,0.14), 0 6px 30px 5px rgba(0,0,0,0.12), 0 8px 10px -5px rgba(0,0,0,0.2);
 }
 
 .badge {
@@ -265,17 +267,22 @@ nav {
   }
 }
 
-.pagination {
+.pagination-wrapper {
   margin-top: 70px;
-}
-.justify-content-center {
-  justify-content: center !important;
-}
-.pagination {
-  display: flex;
-  padding-left: 0;
-  list-style: none;
-  border-radius: .25rem;
+  .pagination {
+    display: flex;
+    padding-left: 0;
+    list-style: none;
+    border-radius: .25rem;
+    justify-content: center !important;
+    .page-item {
+      &.active {
+        a {
+          color: #000;
+        }
+      }
+    }
+  }
 }
 
 .cast-member {
