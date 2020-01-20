@@ -27,17 +27,19 @@
                 <div class="grid">
                   <% @film.cast.first(6).each do |p, i| %>
                     <div class="col-xs-12 col-sm-4 col-md-2">
-                      <div class="cast-member">
-                        <% if p.profile_path != nil %>
-                          <div class="cast-profile">
-                            <img src="https://image.tmdb.org/t/p/w500/<%= p.profile_path %>">
+                      <%= link_to person_show_path(:person_id => p.id), 'data-turbolinks' => false do %>
+                        <div class="cast-member">
+                          <% if p.profile_path != nil %>
+                            <div class="cast-profile">
+                              <img src="https://image.tmdb.org/t/p/w500/<%= p.profile_path %>">
+                            </div>
+                          <% end %>
+                          <div class="cast-body">
+                            <h5 class='cast-name'><%= p.name %></h5>
+                            <p class='cast-character'><%= p.character %></p>
                           </div>
-                        <% end %>
-                        <div class="cast-body">
-                          <h5 class='cast-name'><%= p.name %></h5>
-                          <p class='cast-character'><%= p.character %></p>
                         </div>
-                      </div>
+                      <% end %>
                     </div>
                   <% end %>
                 </div>

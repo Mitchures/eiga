@@ -1,0 +1,40 @@
+<div class="section" style="padding: 9rem 0;">
+  <div class="container">
+    <div class="grid">
+      <div class="col-xs-12">
+        <div class="main-raised">
+          <div class="grid">
+            <div class="col-xs-12 col-md-4">
+              <img src="https://image.tmdb.org/t/p/w1280/<%= @person.profile_path %>" alt="" />
+            </div>
+            <div class="col-xs-12 col-md-8">
+              <h1><%= @person.name %></h1>
+              <p><%= @person.biography %></p>
+            </div>
+            <div class="col-xs-12">
+              <% if @person.films.count >= 1 %>
+                <div class="grid">
+                  <% @person.films.each do |f, i| %>
+                    <div class="col-xs-12 col-md-4">
+                      <%= link_to details_show_path(:id => f.id), 'data-turbolinks' => false do %>
+                        <div class="cast-member">
+                          <div class="cast-profile">
+                            <img src="https://image.tmdb.org/t/p/w500/<%= f.poster_path %>">
+                          </div>
+                          <div class="cast-body">
+                            <h5 class='cast-name'><%= f.title %></h5>
+                            <p class='cast-character'><%= f.character %></p>
+                          </div>
+                        </div>
+                      <% end %>
+                    </div>
+                  <% end %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

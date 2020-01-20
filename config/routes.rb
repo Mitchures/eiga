@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'person/show'
   root to: 'home#index'
 
   resources :users, only: [:new, :show, :create]
