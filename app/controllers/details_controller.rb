@@ -6,6 +6,7 @@ class DetailsController < ApplicationController
     details.cast = Tmdb::Movie.cast(params[:id])
     details.reviews = Tmdb::Movie.reviews(params[:id]).results
     details.backdrops = Tmdb::Movie.backdrops(params[:id])
+    details.id = params[:id]
     release = details.release_date
     if release.nil? || release == ''
       details.release_date = 'TBD'
@@ -28,4 +29,20 @@ class DetailsController < ApplicationController
     rest = minutes % 60
     return "#{hours}h #{rest}m"
   end
+
+  def add_to_watchlist
+    #for i in current_user.watchlist do
+    #  puts i
+    #  puts i == params[:movie_id]
+    #  if i == params[:movie_id]
+    #    current_user.watchlist.delete(params[:movie_id])
+    #  else
+    #    current_user.watchlist << params[:movie_id]
+    #  end
+    #  current_user.save
+    #
+    #end
+    redirect_to details_show_path(:id => params[:movie_id])
+  end
+
 end

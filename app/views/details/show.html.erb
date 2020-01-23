@@ -21,6 +21,14 @@
                 <span class="badge badge-danger mb-3"><%= g.name %></span>
               <% end %>
               <p><%= @film.overview %></p>
+              <%= button_to add_to_watchlist_path(:movie_id => @film.id), class: "btn" do %>
+                <span class="icon">
+                  <i class="material-icons">add</i>
+                </span>
+                <span class="text">
+                  Add to Watchlist
+                </span>
+              <% end %>
             </div>
             <div class="col-xs-12">
               <% if @film.cast.count >= 1 %>
