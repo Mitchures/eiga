@@ -17,7 +17,7 @@
                 <div class="grid">
                   <% @person.films.each do |f, i| %>
                     <div class="col-xs-12 col-sm-4 col-md-2">
-                      <%= link_to details_show_path(:id => f.id), 'data-turbolinks' => false do %>
+                      <%= link_to details_path(:id => f.id), 'data-turbolinks' => false do %>
                         <div class="cast-member">
                           <div class="cast-profile">
                             <img src="https://image.tmdb.org/t/p/w500/<%= f.poster_path %>">

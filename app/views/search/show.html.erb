@@ -12,9 +12,9 @@
       <% if @search.total_results != 0 %>
         <% @search.results.each do |m| %>
           <div class="col-xs-12 col-md-6">
-            <%= link_to details_show_path(:id => m.id), 'data-turbolinks' => false do %>
+            <%= link_to details_path(:id => m.id), 'data-turbolinks' => false do %>
               <div id="uid_<%= m.id %>" class="card card-blog card-plain" style="background-color: #ccc; background-image: url('<%= m.backdrop_path %>')">
-                <div class="card-header card-header-image">
+                <div class="card-header">
                   <div class='card-title'><%= m.title %></div>
                 </div>
               </div>
@@ -27,7 +27,7 @@
               <ul class="pagination">
                 <% for i in 1..@search.total_pages do %>
                   <li class="page-item <% if @search.current_page == i %>active<% end %>">
-                    <%= link_to i, search_show_path(:query => @search.user_input, :page => i), class: "page-link", 'data-turbolinks' => false %>
+                    <%= link_to i, search_path(:query => @search.user_input, :page => i), class: "page-link", 'data-turbolinks' => false %>
                   </li>
                 <% end %>
               </ul>

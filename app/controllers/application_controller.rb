@@ -8,4 +8,11 @@ class ApplicationController < ActionController::Base
       @current_user = nil
     end
   end
+
+  private
+
+  def authorize_user
+    @user = User.find(params[:id])
+    redirect_to root_url unless current_user == @user
+  end
 end

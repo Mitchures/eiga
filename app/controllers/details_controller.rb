@@ -31,18 +31,13 @@ class DetailsController < ApplicationController
   end
 
   def add_to_watchlist
-    #for i in current_user.watchlist do
-    #  puts i
-    #  puts i == params[:movie_id]
-    #  if i == params[:movie_id]
-    #    current_user.watchlist.delete(params[:movie_id])
-    #  else
-    #    current_user.watchlist << params[:movie_id]
-    #  end
-    #  current_user.save
-    #
-    #end
-    redirect_to details_show_path(:id => params[:movie_id])
+    if current_user.watchlist.include? params[:movie_id].to_i
+      current_user.watchlist.delete(params[:movie_id].to_i)
+    else
+      current_user.watchlist << params[:movie_id]
+    end
+    current_user.save
+    redirect_to details_path(:id => params[:movie_id])
   end
 
 end

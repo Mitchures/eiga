@@ -1,5 +1,5 @@
-class HomeController < ApplicationController
-  def index
+class WatchlistController < ApplicationController
+  def show
     if current_user.present?
       if current_user.watchlist.length >= 1
         watchlist = []
@@ -8,8 +8,8 @@ class HomeController < ApplicationController
         end
         @watchlist = watchlist
       end
+    else
+      redirect_to root_path
     end
-    @mnp = Tmdb::Movie.now_playing.results
-    @anime = Tmdb::Keyword.movies(210024, page: params[:page]).results.first(3)
   end
 end
