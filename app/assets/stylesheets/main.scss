@@ -235,6 +235,23 @@ nav {
   }
 }
 
+input {
+  border-radius: 6px;
+  background-color: #eee;
+  border: 0;
+  height: 36px;
+  transition: background 0s ease-out;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 34px;
+  &:active {
+    outline: none;
+  }
+  &:focus {
+    outline: none;
+  }
+}
+
 .form-control {
   border-radius: 6px;
   background-color: #eee;

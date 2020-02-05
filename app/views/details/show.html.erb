@@ -20,13 +20,13 @@
         <p><%= @film.overview %></p>
         <% if current_user.present? %>
           <%= button_to add_to_watchlist_path(:movie_id => @film.id) do %>
-                  <span class="text">
-                    <% if current_user.watchlist.include? @film.id.to_i %>
-                      Remove from Watchlist
-                    <% else %>
-                      Add to Watchlist
-                    <% end %>
-                  </span>
+            <span class="text">
+              <% if current_user.watchlist.include? @film.id.to_i %>
+                Remove from Watchlist
+              <% else %>
+                Add to Watchlist
+              <% end %>
+            </span>
           <% end %>
         <% end %>
       </div>

@@ -17,7 +17,8 @@ class DetailsController < ApplicationController
       details.runtime = time_conversion(details.runtime)
     end
     if details.backdrop_path != nil
-      details.backdrop_path = details.backdrops[rand(0..(details.backdrops.length - 1))].file_path
+      details.backdrop_path = details.backdrops[0].file_path
+      #details.backdrop_path = details.backdrops[rand(0..(details.backdrops.length - 1))].file_path
     else
       details.backdrop_path = details.poster_path
     end

@@ -1,9 +1,10 @@
 class SearchController < ApplicationController
 
   def show
-    query = Tmdb::Search.movie(params[:query], page: params[:page])
+    query = Tmdb::Search.multi(params[:query])
+    #query = Tmdb::Search.movie(params[:query], page: params[:page])
     query.user_input = params[:query]
-    query.current_page = params[:page].to_i
+    #query.current_page = params[:page].to_i
     img_url_path = "https://image.tmdb.org/t/p/w780/"
     query.results.each do |i|
       if i.backdrop_path.nil?
