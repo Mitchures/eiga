@@ -15,7 +15,7 @@
             <%= link_to details_path(:id => m.id), 'data-turbolinks' => false do %>
               <div id="uid_<%= m.id %>" class="card card-blog card-plain" style="background-color: #ccc; background-image: url('<%= m.backdrop_path %>')">
                 <div class="card-header">
-                  <div class='card-title'><%= m.title %></div>
+                  <div class='card-title'><%= m.title ? m.title : m.name %></div>
                 </div>
               </div>
             <% end %>

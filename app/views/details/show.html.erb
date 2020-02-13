@@ -13,10 +13,10 @@
       </div>
       <div class="col-xs-12 col-md-8">
         <h1><%= @film.title %></h1>
-        <p><span><%= @film.release_date %></span><span><%= @film.runtime %></span></p>
-        <% @film.genres.each do |g| %>
-          <span class="badge badge-danger mb-3"><%= g.name %></span>
-        <% end %>
+        <p><span><%= @film.release_date %></span><span><%= @film.runtime %></span><span><%= @film.genres.first.name %></span></p>
+        <%# @film.genres.each do |g| %>
+<!--          <span class="badge badge-danger mb-3"><%#= g.name %></span>-->
+        <%# end %>
         <p><%= @film.overview %></p>
         <% if current_user.present? %>
           <%= button_to add_to_watchlist_path(:movie_id => @film.id) do %>
@@ -24,7 +24,10 @@
               <% if current_user.watchlist.include? @film.id.to_i %>
                 Remove from Watchlist
               <% else %>
-                Add to Watchlist
+                <span class="icon-wrapper">
+                  <i class="material-icons">add</i>
+                  <span class="icon-text">Add to Watchlist</span>
+                </span>
               <% end %>
             </span>
           <% end %>

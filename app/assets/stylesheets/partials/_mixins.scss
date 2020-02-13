@@ -11,7 +11,7 @@
   transition: $prop $time $effect;
 }
 
-@mixin transitionBlock ($prop: all, $time: 250ms) {
+@mixin transitionBlock ($prop: all, $time: 200ms) {
   -webkit-transition: $prop $time cubic-bezier(0.4, 0, 0.2, 1) 0s;
   -moz-transition: $prop $time cubic-bezier(0.4, 0, 0.2, 1) 0s;
   -ms-transition: $prop $time cubic-bezier(0.4, 0, 0.2, 1) 0s;
