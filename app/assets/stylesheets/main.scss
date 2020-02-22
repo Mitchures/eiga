@@ -92,7 +92,7 @@ button {
   transform: translate3d(0, 0, 0);
   @include transition(all, .1s);
   &:hover {
-    color: $primary-text;
+    color: #000;
     background-color: #fff;
     box-shadow: 0 10px 20px rgba(0, 0, 0, .25);
     transform: translate3d(0, -4px, 0);
@@ -281,7 +281,7 @@ input {
 
 .form-control {
   border-radius: 6px;
-  background-color: #eee;
+  background-color: #222;
   border: 0;
   height: 36px;
   transition: background 0s ease-out;
@@ -318,7 +318,7 @@ input {
       width: 100% !important;
       font-size: 34px;
       height: 76px;
-      color: #000;
+      color: #fff;
       @extend .ytsans;
       &::-webkit-input-placeholder {
         font-size: 34px;
