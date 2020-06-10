@@ -14,7 +14,7 @@
           <input name="page" type="hidden" value="1">
         </form>
       </div>
-      <% if current_user.present? %>
+      <% if current_user.present? && @watchlist.present? %>
         <div class="col-xs-12">
           <h1>My Watchlist</h1>
         </div>

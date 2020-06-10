@@ -6,15 +6,21 @@
      </div>
       <div class="col-xs-12">
         <div class="grid">
-          <% @watchlist.each do |m| %>
-            <div class="col-xs-12 col-md-6" style="padding: 0;">
-              <%= link_to details_path(:id => m.id), 'data-turbolinks' => false do %>
-                <div id="uid_<%= m.id %>" class="card card-blog card-plain" style="background-image: url('https://image.tmdb.org/t/p/w1280/<%= m.backdrop_path %>')" data-count="1" data-aos="fade-up">
-                  <div class="card-header">
-                    <div class='card-title'><%= m.title %></div>
+          <% if @watchlist.present? %>
+            <% @watchlist.each do |m| %>
+              <div class="col-xs-12 col-md-6" style="padding: 0;">
+                <%= link_to details_path(:id => m.id), 'data-turbolinks' => false do %>
+                  <div id="uid_<%= m.id %>" class="card card-blog card-plain" style="background-image: url('https://image.tmdb.org/t/p/w1280/<%= m.backdrop_path %>')" data-count="1" data-aos="fade-up">
+                    <div class="card-header">
+                      <div class='card-title'><%= m.title %></div>
+                    </div>
                   </div>
-                </div>
-              <% end %>
+                <% end %>
+              </div>
+            <% end %>
+          <% else %>
+            <div class="col-xs-12" style="padding: 0;">
+              <p>You have no items in your watchlist.</p>
             </div>
           <% end %>
         </div>

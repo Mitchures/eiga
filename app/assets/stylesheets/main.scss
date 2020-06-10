@@ -89,13 +89,13 @@ button {
   padding: 1.5rem;
   border: none;
   cursor: pointer;
-  transform: translate3d(0, 0, 0);
+  //transform: translate3d(0, 0, 0);
   @include transition(all, .1s);
   &:hover {
     color: #000;
     background-color: #fff;
     box-shadow: 0 10px 20px rgba(0, 0, 0, .25);
-    transform: translate3d(0, -4px, 0);
+    //transform: translate3d(0, -4px, 0);
   }
   &:active {
     outline: none;
@@ -281,7 +281,7 @@ input {
 
 .form-control {
   border-radius: 6px;
-  background-color: #222;
+  background-color: #eee;
   border: 0;
   height: 36px;
   transition: background 0s ease-out;
@@ -318,7 +318,7 @@ input {
       width: 100% !important;
       font-size: 34px;
       height: 76px;
-      color: #fff;
+      color: #000;
       @extend .ytsans;
       &::-webkit-input-placeholder {
         font-size: 34px;
